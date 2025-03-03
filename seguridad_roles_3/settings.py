@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'seguridad_roles_db',  
         'USER': 'root',   
-        'PASSWORD': '12345',  
+        'PASSWORD': 's3cr3t7',  
         'HOST': 'localhost',           
         'PORT': '3306',                
     }
