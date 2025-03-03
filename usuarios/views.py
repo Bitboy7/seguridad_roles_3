@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from .forms import UsuarioCreationForm  # Importa el formulario personalizado
 from .models import Usuario
-from django.views.decorators.csrf import requires_csrf_token, csrf_protect
+from django.views.decorators.csrf import requires_csrf_token
 from django.template import RequestContext
+
 
 def registro(request):
     if request.method == 'POST':
@@ -21,9 +22,6 @@ def registro(request):
     return render(request, 'usuarios/registro.html', {'form': form})
 
 def inicio_sesion(request):
-    if request.user.is_authenticated:
-        return redirect('inicio')
-    
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -35,6 +33,7 @@ def inicio_sesion(request):
 
 def inicio(request):
     return render(request, 'usuarios/inicio.html')
+
 
 @requires_csrf_token
 def csrf_failure_view(request, reason=""):

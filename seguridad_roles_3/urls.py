@@ -21,5 +21,5 @@ from django.views.generic.base import RedirectView  # Importa RedirectView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('usuarios/', include('usuarios.urls')),
-    path('', RedirectView.as_view(url='/registro/')),
+    path('', RedirectView.as_view(url='usuarios/registro/')),
 ]
